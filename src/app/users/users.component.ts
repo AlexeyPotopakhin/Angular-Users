@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {UsersService} from './users.service';
 import {FilterItem} from '../filters/filter-item';
-import {Observable} from 'rxjs';
+import {Observable, throwError} from 'rxjs';
 import {User} from './user/user.module';
 import {animate, query, stagger, style, transition, trigger} from '@angular/animations';
+import {catchError} from 'rxjs/operators';
 
 @Component({
   selector: 'app-users',
@@ -49,7 +50,10 @@ export class UsersComponent implements OnInit {
   constructor(private usersService: UsersService) { }
 
   ngOnInit() {
-    this.users$ = this.usersService.loadUsers();
+    this.users$ = this.usersService.loadUsers().pipe(catchError(error => {
+      console.log(error);
+      return throwError(error);
+    }));
   }
 
   /**

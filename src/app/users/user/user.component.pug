@@ -1,2 +1,5 @@
 .user
   img.user__avatar([src]="'https://frontend-test.cloud.technokratos.com' + user.avatar")
+  span.user__name {{name}}
+  span {{'Баланс: ' + (user.balance | currency:'RUB':'':'1.2-2':'ru')}}
+  span.user__status {{STATUS_ARRAY[user.status]}}

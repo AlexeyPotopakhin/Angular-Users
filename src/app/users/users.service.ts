@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {Observable, of, throwError} from 'rxjs';
+import {interval, Observable, of, throwError} from 'rxjs';
 import {User} from './user/user.module';
-import {concatMap} from 'rxjs/operators';
+import {concatMap, flatMap} from 'rxjs/operators';
 import * as _ from 'lodash';
 
 @Injectable({
@@ -21,12 +21,25 @@ export class UsersService {
     let params = new HttpParams();
     if (status && _.isNumber(status))
       params = params.set('status', status.toString());
-    return this.httpClient.get<User[]>('https://frontend-test.cloud.technokratos.com/users', {params}).pipe(
+
+    const request = this.httpClient.get<User[]>('https://frontend-test.cloud.technokratos.com/users', {params}).pipe(
       concatMap(users => {
         if (_.isArray(users))
           return of(users);
         return throwError(users);
       })
     );
+
+    return interval(5000).pipe(
+      flatMap(() => request)
+    );
+
+    // return this.httpClient.get<User[]>('https://frontend-test.cloud.technokratos.com/users', {params}).pipe(
+    //   concatMap(users => {
+    //     if (_.isArray(users))
+    //       return of(users);
+    //     return throwError(users);
+    //   })
+    // );
   }
 }
