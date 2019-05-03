@@ -1,7 +1,9 @@
 .users
   app-filters([filters]="filters", (filterChangeEvent)="onFilterChange($event)")
-  ng-container(*ngIf="users$ | async as usersFromContainer")
+  ng-container(*ngIf="users$ | async as usersFromContainer; else loading")
     .users__container([@listStagger]="usersFromContainer.length")
       div(*ngFor="let user of usersFromContainer; trackBy: trackUser")
         app-user([user]="user")
-    .users__bottom
+  ng-template(#loading)
+    .loader-container
+      .loader

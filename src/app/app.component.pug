@@ -1,5 +1,2 @@
-//ng-template([ngIf]="navigationEnd$ | async; else loading")
-router-outlet(*ngIf="navigationEnd$ | async; else loading")
-ng-template(#loading)
-  .loader-container(@loader)
-    .loader
+app-loader
+router-outlet

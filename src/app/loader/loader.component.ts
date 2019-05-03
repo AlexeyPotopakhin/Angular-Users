@@ -1,24 +1,16 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {LoaderService} from './loader.service';
-import {animate, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-loader',
-  templateUrl: './loader.component.pug',
-  styleUrls: ['./loader.component.styl'],
-  animations: [
-    trigger('loader', [
-      transition(':leave', [
-        animate(400, style({opacity: '0'}))
-      ])
-    ])
-  ]
+  template: `<div class="loader-container" #loader><div class="loader"></div></div>`
 })
 export class LoaderComponent implements OnInit {
+  @ViewChild('loader') splashScreen: ElementRef;
 
   constructor(private loaderService: LoaderService) { }
 
   ngOnInit() {
-
+    this.loaderService.init(this.splashScreen);
   }
 }

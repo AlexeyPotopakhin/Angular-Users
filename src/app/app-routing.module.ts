@@ -6,13 +6,16 @@ import {AuthenticationService} from './authentication/authentication.service';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'users',
     component: UsersComponent,
     canActivate: [AuthenticationService]
-  },
-  {
+  }, {
     path: 'auth',
     component: AuthenticationComponent
+  }, {
+    path: '**',
+    redirectTo: '/users',
+    pathMatch: 'full'
   }
 ];
 

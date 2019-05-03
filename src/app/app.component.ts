@@ -1,32 +1,25 @@
 import {Component, OnInit} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
-import {Observable} from 'rxjs';
-import {filter, map} from 'rxjs/operators';
-import {animate, style, transition, trigger} from '@angular/animations';
+import {LoaderService} from "./loader/loader.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.pug',
-  styleUrls: ['./app.component.styl'],
-  animations: [
-    trigger('loader', [
-      transition(':leave', [
-        animate(400, style({opacity: '0'}))
-      ])
-    ])
-  ]
+  styleUrls: ['./app.component.styl']
 })
 export class AppComponent implements OnInit {
-  navigationEnd$: Observable<boolean>;
+  private routeEventSubscription: Subscription;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private loaderService: LoaderService) {}
 
   ngOnInit(): void {
-    this.navigationEnd$ = this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd),
-      map(() => {
-        return true;
-      })
-    );
+    // Subscribing on route navigation end event and hiding loader
+    this.routeEventSubscription = this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.loaderService.hide();
+        this.routeEventSubscription.unsubscribe();
+      }
+    });
   }
 }

@@ -10,14 +10,19 @@ export class LoaderService {
 
   constructor(private animationBuilder: AnimationBuilder) {}
 
+  /**
+   * Initializes loader
+   */
   init(element: ElementRef) {
     this.el = element;
   }
 
+  /**
+   * Hides loader
+   */
   hide() {
-    if (this.stopped) {
+    if (this.stopped)
       return;
-    }
 
     const player = this.animationBuilder.build([
       style({opacity: '1'}),
@@ -32,6 +37,6 @@ export class LoaderService {
       this.stopped = true;
     });
 
-    setTimeout(() => player.play(), 30);
+    setTimeout(() => player.play(), 300);
   }
 }

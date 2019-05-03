@@ -1,10 +1,13 @@
 .users
-  background #F7F7F7
+  display flex
+  flex-direction column
+  height 100%
 
   .users__container
     padding-top 30px
 
-  .users__bottom
+  .users__container::after
+    content ""
     position fixed
     bottom 0
     background linear-gradient(180deg, rgba(247, 247, 247, 0) 0%, #F7F7F7 100%)
