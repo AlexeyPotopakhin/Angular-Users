@@ -5,6 +5,7 @@ import {FiltersModule} from '../filters/filters.module';
 import {UserComponent} from './user/user.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MomentModule} from 'ngx-moment';
 
 @NgModule({
   declarations: [UsersComponent, UserComponent],
@@ -13,7 +14,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     CommonModule,
     FiltersModule,
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MomentModule
   ]
 })
 export class UsersModule { }

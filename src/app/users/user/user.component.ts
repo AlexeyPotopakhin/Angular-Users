@@ -9,13 +9,17 @@ import {User} from './user.module';
 export class UserComponent {
   @Input() user: User;
 
-  STATUS_ARRAY = ['Подписка активна', 'Приостановлена', 'Заблокирован'];
+  private STATUS_ARRAY = ['Подписка активна', 'Приостановлена', 'Заблокирован'];
 
   constructor() { }
 
-  get name() {
+  get name(): string {
     const name = this.user.name.charAt(0);
     const mname = this.user.mname.charAt(0);
     return `${this.user.fname} ${name}. ${mname}.`;
+  }
+
+  get status(): string {
+    return this.STATUS_ARRAY[this.user.status];
   }
 }
