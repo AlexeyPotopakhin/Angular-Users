@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {User} from './user.module';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-user',
@@ -12,6 +13,10 @@ export class UserComponent {
   private STATUS_ARRAY = ['Подписка активна', 'Приостановлена', 'Заблокирован'];
 
   constructor() { }
+
+  get avatar(): string {
+    return `${environment.host}${this.user.avatar}`;
+  }
 
   get name(): string {
     const name = this.user.name.charAt(0);

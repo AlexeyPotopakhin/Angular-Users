@@ -3,6 +3,7 @@ import {HttpClient, HttpResponse} from '@angular/common/http';
 import {concatMap, tap} from 'rxjs/operators';
 import {Observable, of, throwError} from 'rxjs';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from '@angular/router';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,8 @@ export class AuthenticationService implements CanActivate {
    * Authenticates user
    */
   login(login: string, password: string) {
-    return this.httpClient.post('https://frontend-test.cloud.technokratos.com/auth', JSON.stringify({login, password}),
-      {headers: {'Content-Type': 'application/json'}, observe: 'response'}).pipe(
+    return this.httpClient.post(`${environment.host}/auth`, JSON.stringify({login, password}),
+      {headers: {'Content-Type': 'application/json; charset=utf-8'}, observe: 'response'}).pipe(
         // Checking for the auth token
         concatMap((response: HttpResponse<any>) => {
           const token = response.headers.get('authorization');

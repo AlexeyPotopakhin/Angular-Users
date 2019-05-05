@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {interval, Observable, of, throwError} from 'rxjs';
+import {merge, Observable, of, timer} from 'rxjs';
 import {User} from './user/user.module';
-import {concatMap, flatMap} from 'rxjs/operators';
+import {catchError, concatMap, map, switchMap, timeout} from 'rxjs/operators';
 import * as _ from 'lodash';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -19,27 +20,37 @@ export class UsersService {
    */
   loadUsers(status?: number): Observable<User[]> {
     let params = new HttpParams();
-    if (status && _.isNumber(status))
+    if (!_.isNaN(status) && _.isNumber(status))
       params = params.set('status', status.toString());
 
-    const request = this.httpClient.get<User[]>('https://frontend-test.cloud.technokratos.com/users', {params}).pipe(
+    const request = this.httpClient.get<User[]>(`${environment.host}/users`, {params}).pipe(
       concatMap(users => {
         if (_.isArray(users))
-          return of(users);
-        return throwError(users);
+          return of(users).pipe(
+            map(users => _.sortBy(users, ['fname', 'name', 'mname']))
+          );
+        return request;
       })
     );
 
-    return interval(5000).pipe(
-      flatMap(() => request)
+    const requestWithTimeout = request.pipe(
+      timeout(5000),
+      catchError(error => {
+        console.log(error);
+        return of([]);
+      })
     );
 
-    // return this.httpClient.get<User[]>('https://frontend-test.cloud.technokratos.com/users', {params}).pipe(
-    //   concatMap(users => {
-    //     if (_.isArray(users))
-    //       return of(users);
-    //     return throwError(users);
-    //   })
-    // );
+    const autoRequest = timer(5000, 5000).pipe(
+      switchMap(time => {
+        console.log(time);
+        return request;
+      })
+    );
+
+    return merge<User[], User[]>(
+      requestWithTimeout,
+      autoRequest
+    )
   }
 }
