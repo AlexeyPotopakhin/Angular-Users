@@ -25,7 +25,7 @@ export class AuthenticationComponent {
     this.authenticationService.login(this.auth.login, this.auth.password).pipe(
       catchError((error: Error | HttpErrorResponse) => {
         if (error instanceof Error)
-          console.log(error.message);
+          console.error(error.message);
         else if (error instanceof HttpErrorResponse && error.status == 403)
           console.log('Неверные логин или пароль');
         return throwError(error);

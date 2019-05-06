@@ -51,6 +51,6 @@ export class UsersService {
     return merge<User[], User[]>(
       requestWithTimeout,
       autoRequest
-    )
+    );
   }
 }
