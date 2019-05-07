@@ -1,3 +1,4 @@
-<p>
-  notification works!
-</p>
+.notification([@fadeAnimation]="{value: animationState}", (@fadeAnimation.done)="onFadeFinished()")
+  .notification__icon([style.background]="iconBackgroundColor")
+    i.material-icons {{data.icon}}
+  .notification__text {{data.message}}

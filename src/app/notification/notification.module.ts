@@ -8,6 +8,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
     CommonModule,
     OverlayModule
   ],
-  declarations: [NotificationComponent]
+  declarations: [NotificationComponent],
+  entryComponents: [NotificationComponent]
 })
 export class NotificationModule { }

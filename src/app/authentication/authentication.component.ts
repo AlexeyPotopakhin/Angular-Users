@@ -4,6 +4,7 @@ import {catchError} from 'rxjs/operators';
 import {HttpErrorResponse} from '@angular/common/http';
 import {throwError} from 'rxjs';
 import {Router} from '@angular/router';
+import {NotificationService} from '../notification/notification.service';
 
 @Component({
   selector: 'app-authentication',
@@ -19,7 +20,8 @@ export class AuthenticationComponent {
   };
 
   constructor(private authenticationService: AuthenticationService,
-              private router: Router) { }
+              private router: Router,
+              private notificationService: NotificationService) { }
 
   login() {
     this.authenticationService.login(this.auth.login, this.auth.password).pipe(
@@ -27,7 +29,7 @@ export class AuthenticationComponent {
         if (error instanceof Error)
           console.error(error.message);
         else if (error instanceof HttpErrorResponse && error.status == 403)
-          console.log('Неверные логин или пароль');
+          this.notificationService.error('Неверные логин или пароль');
         return throwError(error);
       })
     ).subscribe(() => {

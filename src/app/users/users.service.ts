@@ -5,13 +5,15 @@ import {User} from './user/user.module';
 import {catchError, concatMap, map, switchMap, timeout} from 'rxjs/operators';
 import * as _ from 'lodash';
 import {environment} from '../../environments/environment';
+import {NotificationService} from '../notification/notification.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,
+              private notificationService: NotificationService) { }
 
   /**
    * Loads users list
@@ -23,6 +25,7 @@ export class UsersService {
     if (!_.isNaN(status) && _.isNumber(status))
       params = params.set('status', status.toString());
 
+    // Basic request
     const request = this.httpClient.get<User[]>(`${environment.host}/users`, {params}).pipe(
       concatMap(users => {
         if (_.isArray(users))
@@ -33,19 +36,18 @@ export class UsersService {
       })
     );
 
+    // Basic request with timeout
     const requestWithTimeout = request.pipe(
       timeout(5000),
-      catchError(error => {
-        console.log(error);
+      catchError(() => {
+        this.notificationService.error('Сервер не отвечает');
         return of([]);
       })
     );
 
+    // Basic auto request every 5s
     const autoRequest = timer(5000, 5000).pipe(
-      switchMap(time => {
-        console.log(time);
-        return request;
-      })
+      switchMap(() => request)
     );
 
     return merge<User[], User[]>(
