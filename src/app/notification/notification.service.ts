@@ -13,6 +13,8 @@ export class NotificationService {
     .top('70px')
     .right('50px');
 
+  private currentVisibleNotification: OverlayRef;
+
   constructor(private overlay: Overlay,
               private parentInjector: Injector) { }
 
@@ -31,6 +33,10 @@ export class NotificationService {
    * @param data Notification data
    */
   notification(data: NotificationData) {
+    // Destroy current notification if visible
+    if (this.currentVisibleNotification && this.currentVisibleNotification.overlayElement)
+      this.currentVisibleNotification.dispose();
+
     const overlayRef = this.overlay.create({positionStrategy: this.positionStrategy});
 
     // Collecting component data
@@ -41,5 +47,7 @@ export class NotificationService {
 
     const toastPortal = new ComponentPortal(NotificationComponent, null, injector);
     overlayRef.attach(toastPortal);
+
+    this.currentVisibleNotification = overlayRef;
   }
 }
