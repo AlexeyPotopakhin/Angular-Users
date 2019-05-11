@@ -24,7 +24,7 @@ export class NotificationService {
    * @param message Message
    */
   error(message: string) {
-    this.notification({type: 'error', message, icon: 'error'});
+    this.notification({type: 'error', message, icon: 'error', closeTimeout: 4000});
   }
 
   /**

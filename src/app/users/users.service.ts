@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {merge, Observable, of, timer} from 'rxjs';
 import {User} from './user/user.module';
-import {catchError, concatMap, map, switchMap, timeout} from 'rxjs/operators';
+import {catchError, concatAll, concatMap, map, switchMap, timeout} from 'rxjs/operators';
 import * as _ from 'lodash';
 import {environment} from '../../environments/environment';
 import {NotificationService} from '../notification/notification.service';
@@ -41,7 +41,7 @@ export class UsersService {
       timeout(5000),
       catchError(() => {
         this.notificationService.error('Сервер не отвечает');
-        return of([]);
+        return of(null);
       })
     );
 
@@ -50,9 +50,9 @@ export class UsersService {
       switchMap(() => request)
     );
 
-    return merge<User[], User[]>(
-      requestWithTimeout,
-      autoRequest
-    );
+    return merge(
+      of(requestWithTimeout),
+      of(autoRequest)
+    ).pipe(concatAll());
   }
 }
