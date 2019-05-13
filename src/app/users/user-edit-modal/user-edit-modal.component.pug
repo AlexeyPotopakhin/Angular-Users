@@ -1,0 +1,10 @@
+h1(mat-dialog-title) {{name}}
+div(mat-dialog-content)
+  form
+    input.form-control(name="fname", type="text", [(ngModel)]="user.fname", placeholder="Фамилия", required)
+    input.form-control(name="name", type="text", [(ngModel)]="user.name", placeholder="Имя", required)
+    input.form-control(name="mname", type="text", [(ngModel)]="user.mname", placeholder="Отчество", required)
+    select(name="status", [(ngModel)]="user.status")
+      option(*ngFor="let status of statusList", [ngValue]="status.key") {{status.name}}
+div(mat-dialog-actions)
+  button(mat-button, [mat-dialog-close]="user", color="primary") Сохранить

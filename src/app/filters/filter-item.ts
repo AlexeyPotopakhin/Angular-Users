@@ -1,4 +1,4 @@
-export interface FilterItem {
-  id: string;
+export interface FilterItem<T> {
+  id: T;
   name: string;
 }

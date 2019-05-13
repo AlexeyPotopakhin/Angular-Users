@@ -6,5 +6,7 @@ export class User {
   mname: string;
   name: string;
   lastUpdatedAt: string;
-  status: number;
+  status: UserStatus;
 }
+
+export type UserStatus = 0 | 1 | 2;
