@@ -1,4 +1,6 @@
-h1(mat-dialog-title) {{name}}
+.user-edit-modal__header
+  .user-edit-modal__name {{name}}
+  i.material-icons close
 div(mat-dialog-content)
   form
     input.form-control(name="fname", type="text", [(ngModel)]="user.fname", placeholder="Фамилия", required)

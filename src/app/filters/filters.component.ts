@@ -9,8 +9,8 @@ import {FilterItem} from './filter-item';
 export class FiltersComponent {
   activeFilter: number = 0;
 
-  @Input() filters: FilterItem[];
-  @Output() filterChangeEvent = new EventEmitter<FilterItem>();
+  @Input() filters: FilterItem<any>[];
+  @Output() filterChangeEvent = new EventEmitter<FilterItem<any>>();
 
   constructor() {}
 
@@ -20,7 +20,7 @@ export class FiltersComponent {
    * @param filter Filter item
    * @param index Index number by order
    */
-  selectItem(filter: FilterItem, index: number) {
+  selectItem(filter: FilterItem<any>, index: number) {
     if (this.activeFilter == index)
       return;
 

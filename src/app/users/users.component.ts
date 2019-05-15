@@ -62,6 +62,7 @@ export class UsersComponent implements OnInit, OnDestroy {
    */
   onFilterChange(filter: FilterItem<UserStatus>) {
     this.usersSubscription.unsubscribe();
+    this.users$.next(null);
 
     this.usersSubscription = this.usersService.loadUsers(filter.id).pipe(
       tap(users => this.users$.next(users))
