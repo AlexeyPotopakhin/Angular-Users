@@ -8,4 +8,4 @@
       .auth__password_input(*ngIf="isPasswordVisible")
         input.form-control(name="password", type="text", [(ngModel)]="auth.password", placeholder="Пароль", required)
         i.material-icons((click)="isPasswordVisible = false", title="Скрыть пароль", *ngIf="auth.password") visibility_off
-    button.btn(type="submit", [disabled]="!authForm.form.valid") ВОЙТИ
+    button.btn.btn-large(type="submit", [disabled]="!authForm.form.valid") ВОЙТИ
