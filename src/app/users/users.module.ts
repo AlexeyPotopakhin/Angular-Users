@@ -10,6 +10,7 @@ import {UserEditModalComponent} from './user-edit-modal/user-edit-modal.componen
 
 import {MatButtonModule, MatDialogModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
+import {ControlsModule} from '../controls/controls.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {FormsModule} from '@angular/forms';
     BrowserAnimationsModule,
     MomentModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    ControlsModule
   ]
 })
 export class UsersModule { }

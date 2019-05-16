@@ -1,9 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {LOCALE_ID, NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {CommonModule, registerLocaleData} from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
-import {registerLocaleData} from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
 
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
