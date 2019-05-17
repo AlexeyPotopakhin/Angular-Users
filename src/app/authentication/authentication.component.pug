@@ -1,6 +1,6 @@
 .auth
   form(#authForm="ngForm", (ngSubmit)="login()")
-    input.form-control(name="login", type="text", [(ngModel)]="auth.login", placeholder="Логин", required)
+    app-input(name="login", type="text", [(ngModel)]="auth.login", placeholder="Логин", required)
     .auth__password
       .auth__password_input(*ngIf="!isPasswordVisible")
         input.form-control(name="password", type="password", [(ngModel)]="auth.password", placeholder="Пароль", required)

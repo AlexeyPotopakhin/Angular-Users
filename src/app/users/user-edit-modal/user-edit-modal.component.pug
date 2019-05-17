@@ -4,9 +4,9 @@
     i.material-icons close
 .user-edit-modal__content
   form
-    app-input(name="fname", [(ngModel)]="user.fname", placeholder="Фамилия")
-    app-input(name="name", [(ngModel)]="user.name", placeholder="Имя")
-    app-input(name="mname", [(ngModel)]="user.mname", placeholder="Отчество")
+    app-input(name="fname", [(ngModel)]="user.fname", placeholder="Фамилия", required)
+    app-input(name="name", [(ngModel)]="user.name", placeholder="Имя", required)
+    app-input(name="mname", [(ngModel)]="user.mname", placeholder="Отчество", required)
     select(name="status", [(ngModel)]="user.status")
       option(*ngFor="let status of statusList", [ngValue]="status.key") {{status.name}}
   .user-edit-modal__actions

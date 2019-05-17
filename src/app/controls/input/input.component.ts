@@ -5,9 +5,11 @@ import {noop} from 'rxjs';
 @Component({
   selector: 'app-input',
   template: `
-    <div class="app-input__placeholder" *ngIf="!value">{{placeholder}}</div>
-    <div class="app-input__input">
-      <input [type]="type" [(ngModel)]="value" (blur)="onBlur()">
+    <div class="app-input">
+      <div class="app-input__placeholder" *ngIf="!value">{{placeholder}}</div>
+      <div class="app-input__input">
+        <input [type]="type" [(ngModel)]="value" (blur)="onBlur()" [required]="required">
+      </div>
     </div>
   `,
   styleUrls: ['./input.component.styl'],
@@ -22,6 +24,7 @@ import {noop} from 'rxjs';
 export class InputComponent implements ControlValueAccessor {
   @Input() placeholder: string;
   @Input() type: string = 'text';
+  @Input() required: boolean = false;
 
   private innerValue: any = '';
 
