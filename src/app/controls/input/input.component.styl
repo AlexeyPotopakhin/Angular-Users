@@ -1,31 +1,27 @@
 :host
   display inline-block
 
-.app-input
+.app-input__container
   display flex
+  flex-direction row-reverse
   align-items center
-  width 240px
-  height 48px
-  padding 16px 14px 16px 14px
-  background #fff
-  background-clip padding-box
-  border 1px solid #ECEBED
-  box-shadow 0 7px 64px rgba(0, 0, 0, 0.07)
-  border-radius 6px
-  box-sizing border-box
 
-  .app-input__placeholder
+  input
+    width 240px
+    height 48px
+    padding 0 14px 0 14px
+    background #fff
+    background-clip padding-box
+    border 1px solid #ECEBED
+    box-shadow 0 7px 64px rgba(0, 0, 0, 0.07)
+    border-radius 6px
+    box-sizing border-box
+    color #1A051D
+    outline none
+
+  i
+    color #6979F8
+    font-size 1.5rem
     position absolute
-    color #D0C9D6
-
-  .app-input__input
-    width 100%
-
-    input
-      color #1A051D
-      box-sizing content-box
-      background none transparent
-      border 0 none
-      box-shadow none
-      outline none
-      width 100%
+    padding-right 15px
+    cursor pointer

@@ -12,8 +12,6 @@ import {NotificationService} from '../notification/notification.service';
   styleUrls: ['./authentication.component.styl']
 })
 export class AuthenticationComponent {
-  isPasswordVisible = false;
-
   auth = {
     login: null,
     password: null

@@ -5,11 +5,12 @@ import {noop} from 'rxjs';
 @Component({
   selector: 'app-input',
   template: `
-    <div class="app-input">
-      <div class="app-input__placeholder" *ngIf="!value">{{placeholder}}</div>
-      <div class="app-input__input">
-        <input [type]="type" [(ngModel)]="value" (blur)="onBlur()" [required]="required">
-      </div>
+    <div class="app-input__container">
+      <input [type]="type" [(ngModel)]="value" (blur)="onBlur()" [required]="required" [placeholder]="placeholder" *ngIf="!isPasswordVisible">
+      <i class="material-icons" (click)="isPasswordVisible = true" title="Показать пароль" *ngIf="isPassword && !isPasswordVisible">visibility</i>
+
+      <input type="text" [(ngModel)]="value" (blur)="onBlur()" [required]="required" [placeholder]="placeholder" *ngIf="isPassword && isPasswordVisible">
+      <i class="material-icons" (click)="isPasswordVisible = false" title="Скрыть пароль" *ngIf="isPassword && isPasswordVisible">visibility_off</i>
     </div>
   `,
   styleUrls: ['./input.component.styl'],
@@ -25,6 +26,11 @@ export class InputComponent implements ControlValueAccessor {
   @Input() placeholder: string;
   @Input() type: string = 'text';
   @Input() required: boolean = false;
+
+  isPasswordVisible = false;
+  get isPassword() {
+    return this.type == 'password';
+  }
 
   private innerValue: any = '';
 

@@ -1,11 +1,4 @@
-.auth
-  form(#authForm="ngForm", (ngSubmit)="login()")
-    app-input(name="login", type="text", [(ngModel)]="auth.login", placeholder="Логин", required)
-    .auth__password
-      .auth__password_input(*ngIf="!isPasswordVisible")
-        input.form-control(name="password", type="password", [(ngModel)]="auth.password", placeholder="Пароль", required)
-        i.material-icons((click)="isPasswordVisible = true", title="Показать пароль", *ngIf="auth.password") visibility
-      .auth__password_input(*ngIf="isPasswordVisible")
-        input.form-control(name="password", type="text", [(ngModel)]="auth.password", placeholder="Пароль", required)
-        i.material-icons((click)="isPasswordVisible = false", title="Скрыть пароль", *ngIf="auth.password") visibility_off
-    button.btn.btn-large(type="submit", [disabled]="!authForm.form.valid") ВОЙТИ
+form(#authForm="ngForm", (ngSubmit)="login()")
+  app-input(name="login", type="text", [(ngModel)]="auth.login", placeholder="Логин", required)
+  app-input(name="password", type="password", [(ngModel)]="auth.password", placeholder="Пароль", required)
+  button.btn.btn-large(type="submit", [disabled]="!authForm.form.valid") ВОЙТИ
