@@ -6,11 +6,9 @@ import {noop} from 'rxjs';
   selector: 'app-input',
   template: `
     <div class="app-input__container">
-      <input [type]="type" [(ngModel)]="value" (blur)="onBlur()" [required]="required" [placeholder]="placeholder" *ngIf="!isPasswordVisible">
-      <i class="material-icons" (click)="isPasswordVisible = true" title="Показать пароль" *ngIf="isPassword && !isPasswordVisible">visibility</i>
-
-      <input type="text" [(ngModel)]="value" (blur)="onBlur()" [required]="required" [placeholder]="placeholder" *ngIf="isPassword && isPasswordVisible">
-      <i class="material-icons" (click)="isPasswordVisible = false" title="Скрыть пароль" *ngIf="isPassword && isPasswordVisible">visibility_off</i>
+      <input [type]="type" [(ngModel)]="value" (blur)="onBlur()" [required]="required" [placeholder]="placeholder">
+      <i class="material-icons" (click)="type = 'text'; isPasswordVisible = true" title="Показать пароль" *ngIf="isPassword && !isPasswordVisible">visibility</i>
+      <i class="material-icons" (click)="type = 'password'; isPasswordVisible = false" title="Скрыть пароль" *ngIf="isPasswordVisible">visibility_off</i>
     </div>
   `,
   styleUrls: ['./input.component.styl'],
