@@ -7,7 +7,6 @@
     app-input(name="fname", [(ngModel)]="user.fname", placeholder="Фамилия", required)
     app-input(name="name", [(ngModel)]="user.name", placeholder="Имя", required)
     app-input(name="mname", [(ngModel)]="user.mname", placeholder="Отчество", required)
-    select(name="status", [(ngModel)]="user.status")
-      option(*ngFor="let status of statusList", [ngValue]="status.key") {{status.name}}
+    app-dropdown(name="status", [(ngModel)]="user.status", placeholder="Состояние", [values]="statusList", required)
   .user-edit-modal__actions
     button.btn.btn-small([mat-dialog-close]="user") Сохранить
