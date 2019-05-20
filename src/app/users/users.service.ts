@@ -67,6 +67,7 @@ export class UsersService {
   editUser(user: User): Observable<User> {
     return this.dialog.open(UserEditModalComponent, {
       autoFocus: false,
+      panelClass: 'user-edit-modal-dialog',
       width: '916px',
       data: {user}
     }).afterClosed().pipe(

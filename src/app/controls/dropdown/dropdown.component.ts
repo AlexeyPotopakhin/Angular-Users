@@ -1,4 +1,4 @@
-import {Component, forwardRef, Input} from '@angular/core';
+import {Component, ElementRef, forwardRef, HostListener, Input} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {noop} from 'rxjs';
 import * as _ from 'lodash';
@@ -12,7 +12,8 @@ import * as _ from 'lodash';
     </div>
     <div class="app-dropdown__options" *ngIf="isDropdownOpen">
       <div class="app-dropdown__scroll-host">
-        <div class="app-dropdown__option" (click)="selectOption(option)" *ngFor="let option of values">{{option['name']}}</div>
+        <div class="app-dropdown__option" [ngClass]="{'app-dropdown__option-active': option.key == key}" (click)="selectOption(option)"
+             *ngFor="let option of values">{{option.name}}</div>
       </div>
     </div>
   `,
@@ -34,7 +35,7 @@ export class DropdownComponent implements ControlValueAccessor {
 
   private innerKey: any;
 
-  constructor() { }
+  constructor(private _elementRef: ElementRef) { }
 
   private onTouchedCallback: () => void = noop;
   private onChangeCallback: (_: any) => void = noop;
@@ -77,5 +78,12 @@ export class DropdownComponent implements ControlValueAccessor {
   selectOption(option: {key: string; name: string}) {
     this.isDropdownOpen = false;
     this.key = option.key;
+  }
+
+  @HostListener('document:click', ['$event', '$event.target'])
+  onOutsideClick(event: MouseEvent, targetElement: HTMLElement) {
+    const clickedInside = this._elementRef.nativeElement.contains(targetElement);
+    if (!clickedInside)
+      this.isDropdownOpen = false;
   }
 }
