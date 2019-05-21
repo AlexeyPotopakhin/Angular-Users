@@ -47,6 +47,13 @@ export class NotificationComponent implements OnInit, OnDestroy {
   }
 
   /**
+   * Closes current notification
+   */
+  close() {
+    this.overlay.dispose();
+  }
+
+  /**
    * On animation complete
    */
   onFadeFinished() {

@@ -1,4 +1,4 @@
-.notification([@fadeAnimation]="{value: animationState}", (@fadeAnimation.done)="onFadeFinished()")
+.notification([@fadeAnimation]="{value: animationState}", (@fadeAnimation.done)="onFadeFinished()", (click)="close()")
   .notification__icon([style.background]="iconBackgroundColor")
     i.material-icons {{data.icon}}
   .notification__text {{data.message}}
