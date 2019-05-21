@@ -21,6 +21,9 @@ export class AuthenticationComponent {
               private router: Router,
               private notificationService: NotificationService) { }
 
+  /**
+   * Authenticates user
+   */
   login() {
     this.authenticationService.login(this.auth.login, this.auth.password).pipe(
       catchError((error: Error | HttpErrorResponse) => {

@@ -29,7 +29,7 @@ import * as _ from 'lodash';
 export class DropdownComponent implements ControlValueAccessor {
   @Input() placeholder: string;
   @Input() required: boolean = false;
-  @Input() values: [{key: string; name: string}];
+  @Input() values: {key: any; name: string}[];
 
   isDropdownOpen: boolean = false;
 
