@@ -1,0 +1,40 @@
+.filters {
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.07);
+  padding: 0 20px 0 20px;
+  height: 47px;
+}
+
+.filters .filters__item {
+  display: block;
+  float: left;
+  position: relative;
+  padding: 0 24px;
+  height: 47px;
+  line-height: 47px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 13px;
+  color: #d0c9d6;
+}
+
+.filters .filters__item.active::after {
+  height: 3px;
+  width: 100%;
+  display: block;
+  content: " ";
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  background: #6979f8;
+  border-radius: 200px 200px 0 0;
+}
+
+.filters .filters__item.active {
+  color: #1a051d;
+}
+
+.filters .filters__item:hover {
+  color: #1a051d;
+}

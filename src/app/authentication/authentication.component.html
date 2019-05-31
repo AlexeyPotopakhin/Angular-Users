@@ -1,0 +1,5 @@
+<form #authForm="ngForm" (ngSubmit)="login()">
+  <app-input name="login" type="text" [(ngModel)]="auth.login" placeholder="Логин" required="required"></app-input>
+  <app-input name="password" type="password" [(ngModel)]="auth.password" placeholder="Пароль" required="required"></app-input>
+  <button class="btn btn-large" type="submit" [disabled]="!authForm.form.valid">ВОЙТИ</button>
+</form>

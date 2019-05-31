@@ -1,0 +1,45 @@
+:host {
+  position: relative;
+  display: inline-block;
+}
+
+.app-input__container input {
+  cursor: pointer;
+}
+
+.app-input__container i {
+  color: #3f3356;
+}
+
+.app-dropdown__options {
+  position: absolute;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 7px 64px rgba(0,0,0,0.07);
+  border-radius: 6px;
+  margin-top: 8px;
+  z-index: 1050;
+}
+
+.app-dropdown__options .app-dropdown__scroll-host {
+  overflow: hidden;
+  overflow-y: auto;
+  position: relative;
+  display: block;
+  max-height: 240px;
+  height: auto;
+}
+
+.app-dropdown__options .app-dropdown__scroll-host .app-dropdown__option {
+  cursor: pointer;
+  color: #d0c9d6;
+  padding: 16px;
+}
+
+.app-dropdown__options .app-dropdown__scroll-host .app-dropdown__option:hover {
+  color: #3f3356;
+}
+
+.app-dropdown__options .app-dropdown__scroll-host .app-dropdown__option-active {
+  color: #3f3356;
+}

@@ -1,0 +1,13 @@
+<div class="users">
+  <app-filters [filters]="filters" (filterChangeEvent)="onFilterChange($event)"></app-filters>
+  <ng-container *ngIf="users$ | async as usersFromContainer; else loading">
+    <div class="users__container" [@listStagger]="usersFromContainer.length">
+      <app-user [user]="user" *ngFor="let user of usersFromContainer; trackBy: trackUser" (click)="editUser(user)"></app-user>
+    </div>
+  </ng-container>
+  <ng-template #loading>
+    <div class="loader-container">
+      <div class="loader"></div>
+    </div>
+  </ng-template>
+</div>

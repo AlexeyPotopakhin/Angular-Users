@@ -1,8 +1,0 @@
-.users
-  app-filters([filters]="filters", (filterChangeEvent)="onFilterChange($event)")
-  ng-container(*ngIf="users$ | async as usersFromContainer; else loading")
-    .users__container([@listStagger]="usersFromContainer.length")
-      app-user([user]="user", *ngFor="let user of usersFromContainer; trackBy: trackUser", (click)="editUser(user)")
-  ng-template(#loading)
-    .loader-container
-      .loader

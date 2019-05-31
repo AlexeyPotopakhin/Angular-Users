@@ -1,0 +1,23 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif !important;
+  font-size: 15px;
+  font-weight: 400;
+  color: #7b7e8a;
+  background: #f7f7f7;
+}
+
+button, input {
+  font-family: inherit;
+  font-size: inherit;
+  line-weight: inherit;
+  color: inherit;
+  background-color: inherit;
+}
+
+.user-edit-modal-dialog .mat-dialog-container {
+  padding: 0 !important;
+  overflow: unset !important;
+  border-radius: 12px !important;
+}

@@ -1,0 +1,8 @@
+<div class="user">
+  <img class="user__avatar" [src]="avatar" />
+  <span class="user__name">{{name}}</span>
+  <span>{{'Баланс: ' + (user.balance | currency:'RUB':'':'1.2-2':'ru')}}</span>
+  <div class="user__separator"></div>
+  <span class="user__date">{{'Последнее изменение: ' + (user.lastUpdatedAt | amTimeAgo)}}</span>
+  <span class="user__status">{{status}}</span>
+</div>

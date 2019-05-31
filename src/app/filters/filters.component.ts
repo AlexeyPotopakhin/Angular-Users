@@ -3,8 +3,8 @@ import {FilterItem} from './filter-item';
 
 @Component({
   selector: 'app-filters',
-  templateUrl: './filters.component.pug',
-  styleUrls: ['./filters.component.styl']
+  templateUrl: './filters.component.html',
+  styleUrls: ['./filters.component.css']
 })
 export class FiltersComponent {
   activeFilter: number = 0;

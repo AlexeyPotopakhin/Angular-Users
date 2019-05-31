@@ -1,7 +1,0 @@
-.user
-  img.user__avatar([src]="avatar")
-  span.user__name {{name}}
-  span {{'Баланс: ' + (user.balance | currency:'RUB':'':'1.2-2':'ru')}}
-  .user__separator
-  span.user__date {{'Последнее изменение: ' + (user.lastUpdatedAt | amTimeAgo)}}
-  span.user__status {{status}}

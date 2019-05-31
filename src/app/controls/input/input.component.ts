@@ -11,7 +11,7 @@ import {noop} from 'rxjs';
       <i class="material-icons" (click)="type = 'password'; isPasswordVisible = false" title="Скрыть пароль" *ngIf="isPasswordVisible">visibility_off</i>
     </div>
   `,
-  styleUrls: ['./input.component.styl'],
+  styleUrls: ['./input.component.css'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

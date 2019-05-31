@@ -17,7 +17,7 @@ import * as _ from 'lodash';
       </div>
     </div>
   `,
-  styleUrls: ['../input/input.component.styl', './dropdown.component.styl'],
+  styleUrls: ['../input/input.component.css', './dropdown.component.css'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

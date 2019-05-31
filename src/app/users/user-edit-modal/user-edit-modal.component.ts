@@ -4,8 +4,8 @@ import {User} from '../user/user.model';
 
 @Component({
   selector: 'app-user-edit-modal',
-  templateUrl: './user-edit-modal.component.pug',
-  styleUrls: ['./user-edit-modal.component.styl']
+  templateUrl: './user-edit-modal.component.html',
+  styleUrls: ['./user-edit-modal.component.css']
 })
 export class UserEditModalComponent {
   user: User;

@@ -1,0 +1,43 @@
+.user-edit-modal__header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ecebed;
+  padding: 20px 34px 20px 34px;
+}
+
+.user-edit-modal__header .user-edit-modal__name {
+  font-size: 34px;
+  font-weight: 500;
+  width: 100%;
+}
+
+.user-edit-modal__header .user-edit-modal__close {
+  display: flex;
+  border: 0;
+  outline: none;
+}
+
+.user-edit-modal__header .user-edit-modal__close i {
+  font-size: 30px;
+  color: #6979f8;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.user-edit-modal__content form {
+  padding: 34px;
+}
+
+.user-edit-modal__content form app-input {
+  margin-right: 28px;
+}
+
+.user-edit-modal__content form app-dropdown {
+  margin-top: 28px;
+}
+
+.user-edit-modal__content .user-edit-modal__actions {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 22px;
+}

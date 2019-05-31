@@ -1,0 +1,17 @@
+<div class="user-edit-modal__header">
+  <div class="user-edit-modal__name">{{name}}</div>
+  <button class="user-edit-modal__close" [mat-dialog-close]="null">
+    <i class="material-icons">close</i>
+  </button>
+</div>
+<div class="user-edit-modal__content">
+  <form #userEditForm="ngForm">
+    <app-input name="fname" [(ngModel)]="user.fname" placeholder="Фамилия" required="required"></app-input>
+    <app-input name="name" [(ngModel)]="user.name" placeholder="Имя" required="required"></app-input>
+    <app-input name="mname" [(ngModel)]="user.mname" placeholder="Отчество" required="required"></app-input>
+    <app-dropdown name="status" [(ngModel)]="user.status" placeholder="Состояние" [values]="statusList" required="required"></app-dropdown>
+  </form>
+  <div class="user-edit-modal__actions">
+    <button class="btn btn-small" [mat-dialog-close]="user" [disabled]="!userEditForm.form.valid">Сохранить</button>
+  </div>
+</div>

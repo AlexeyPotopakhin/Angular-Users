@@ -1,0 +1,4 @@
+<div class="notification" [@fadeAnimation]="{value: animationState}" (@fadeAnimation.done)="onFadeFinished()" (click)="close()">
+  <div class="notification__icon" [style.background]="iconBackgroundColor"><i class="material-icons">{{data.icon}}</i></div>
+  <div class="notification__text">{{data.message}}</div>
+</div>

@@ -9,8 +9,8 @@ import * as _ from 'lodash';
 
 @Component({
   selector: 'app-users',
-  templateUrl: './users.component.pug',
-  styleUrls: ['./users.component.styl'],
+  templateUrl: './users.component.html',
+  styleUrls: ['./users.component.css'],
   animations: [
     trigger('listStagger', [
       transition('* <=> *', [

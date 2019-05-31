@@ -1,0 +1,5 @@
+<div class="filters">
+  <a class="filters__item" *ngFor="let filter of filters; let i = index" [ngClass]="{'active': activeFilter == i}" (click)="selectItem(filter, i)">
+    <span>{{filter.name}}</span>
+  </a>
+</div>

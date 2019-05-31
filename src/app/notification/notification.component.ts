@@ -5,8 +5,8 @@ import {OverlayRef} from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-notification',
-  templateUrl: './notification.component.pug',
-  styleUrls: ['./notification.component.styl'],
+  templateUrl: './notification.component.html',
+  styleUrls: ['./notification.component.css'],
   animations: [
     trigger('fadeAnimation', [
       state('default', style({ opacity: 1 })),

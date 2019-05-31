@@ -1,0 +1,29 @@
+.notification {
+  display: flex;
+  align-items: center;
+  width: 240px;
+  height: 64px;
+  background: #fff;
+  box-shadow: 0 7px 64px rgba(0,0,0,0.07);
+  border-radius: 8px;
+  padding: 0 8px 0 8px;
+  cursor: pointer;
+}
+
+.notification .notification__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  height: 48px;
+  border-radius: 8px;
+}
+
+.notification .notification__icon i {
+  color: #fff;
+}
+
+.notification .notification__text {
+  color: #1a051d;
+  margin-left: 12px;
+}

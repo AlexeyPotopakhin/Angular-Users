@@ -8,8 +8,8 @@ import {NotificationService} from '../notification/notification.service';
 
 @Component({
   selector: 'app-authentication',
-  templateUrl: './authentication.component.pug',
-  styleUrls: ['./authentication.component.styl']
+  templateUrl: './authentication.component.html',
+  styleUrls: ['./authentication.component.css']
 })
 export class AuthenticationComponent {
   auth = {

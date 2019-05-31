@@ -1,0 +1,23 @@
+button.btn {
+  background: #6979f8;
+  border-radius: 6px;
+  color: #fff;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+button.btn:focus {
+  outline: 0;
+}
+
+button.btn-large {
+  font-size: 17px;
+  width: 343px;
+  height: 48px;
+}
+
+button.btn-small {
+  font-size: 13px;
+  width: 180px;
+  height: 40px;
+}

@@ -1,0 +1,19 @@
+:host {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+:host form {
+  width: 240px;
+}
+
+:host form app-input {
+  margin-bottom: 24px;
+}
+
+:host form button {
+  width: 100%;
+}

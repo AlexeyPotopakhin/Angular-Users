@@ -1,0 +1,18 @@
+.users {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.users .users__container {
+  padding-top: 30px;
+}
+
+.users .users__container::after {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(247,247,247,0) 0%, #f7f7f7 100%);
+  height: 44px;
+  width: 100%;
+}
