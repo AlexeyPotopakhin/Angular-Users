@@ -2,9 +2,7 @@
 
 #### Angular application developed by the [specification](https://github.com/AlexeyPotopakhin/Angular-Users/blob/stackblitz/Task.pdf)
 
-[Stackblitz Editor](https://stackblitz.com/github/yqnirwbo)
-
-[Application Demo](https://yqnirwbo.github.stackblitz.io)
+[Stackblitz Editor](https://stackblitz.com/github/AlexeyPotopakhin/Angular-Users/tree/stackblitz)
 
 ## Screenshots
 
