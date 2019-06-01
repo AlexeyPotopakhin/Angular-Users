@@ -4,6 +4,8 @@
 
 [Stackblitz Editor](https://stackblitz.com/github/AlexeyPotopakhin/Angular-Users/tree/stackblitz)
 
+[Preview (on Heroku)](https://angular-users-spec.herokuapp.com)
+
 ## Screenshots
 
 ![alt text](https://github.com/AlexeyPotopakhin/Angular-Users/blob/stackblitz/screens/screen_2.png)
